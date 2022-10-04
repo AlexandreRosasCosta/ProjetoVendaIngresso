@@ -1,0 +1,19 @@
+CREATE DATABASE projetoPoo;
+
+CREATE TABLE ASSENTO(
+	ID_Assento INTEGER NOT NULL AUTO_INCREMENT
+);
+
+CREATE TABLE EVENTO(
+	ID_Evento INTEGER NOT NULL AUTO_INCREMENT,
+    Nome_Evento VARCHAR(20) NOT NULL,
+    Inicio_Evento DATETIME NOT NULL,
+    Termino_Evento DATETIME NOT NULL,
+    Num_Vagas_Evento INTEGER NOT NULL,
+    Vlr_Ingresso_Evento DOUBLE NOT NULL,
+    Img_Cartaz_Evento VARCHAR(200) NOT NULL,
+    Qtd_Assentos_Evento INTEGER NOT NULL,
+    ID_Assentos INTEGER NOT NULL,
+    PRIMARY KEY PK_Evento (ID_Evento),
+	FOREIGN KEY FK_Assento (ID_Assento) REFERENCES Assento (ID_Assento)
+);
