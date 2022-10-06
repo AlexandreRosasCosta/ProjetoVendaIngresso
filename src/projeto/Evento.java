@@ -13,11 +13,13 @@ import java.util.Date;
 public class Evento {
     private String nome, imagemCartaz;
     private Date dataHoraInicio, dataHoraTermino; 
-    private int numVagas, colunas, fileiras;
+    private int numVagas, colunas, fileiras, IDEvento, qtdAssentos;
     private double valorIngresso;
     private boolean [][] listaAssentos;
 
-    public Evento(String nome, String imagemCartaz, Date dataHoraInicio, Date dataHoraTermino, int numVagas, double valorIngresso, boolean[][] listaAssentos, int colunas, int fileiras) {
+    public Evento(String nome, String imagemCartaz, Date dataHoraInicio,
+            Date dataHoraTermino, int numVagas, double valorIngresso,
+            boolean[][] listaAssentos, int colunas, int fileiras) {
         this.nome = nome;
         this.imagemCartaz = imagemCartaz;
         this.dataHoraInicio = dataHoraInicio;
@@ -26,6 +28,19 @@ public class Evento {
         this.valorIngresso = valorIngresso;
         this.colunas = colunas;
         this.fileiras = fileiras;
+        this.qtdAssentos = colunas * fileiras;
+        inicializarAssentos(colunas, fileiras);
+    }
+    
+    public Evento(String nome, String imagemCartaz, Date dataHoraInicio,
+            Date dataHoraTermino, int numVagas, double valorIngresso, int colunas, int fileiras) {
+        this.nome = nome;
+        this.imagemCartaz = imagemCartaz;
+        this.dataHoraInicio = dataHoraInicio;
+        this.dataHoraTermino = dataHoraTermino;
+        this.numVagas = numVagas;
+        this.valorIngresso = valorIngresso;
+        this.qtdAssentos = colunas * fileiras;
         inicializarAssentos(colunas, fileiras);
     }
 
@@ -35,6 +50,14 @@ public class Evento {
                 this.listaAssentos[i][j] = false;
             }
         }
+    }
+
+    public int getQtdAssentos() {
+        return qtdAssentos;
+    }
+    
+    public int getIDEvento() {
+        return IDEvento;
     }
 
     public String getNome() {

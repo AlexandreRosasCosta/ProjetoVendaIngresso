@@ -18,7 +18,7 @@ public class ConexaoDb {
     private static String url, pass, user, driver;
 
     public ConexaoDb(){
-        ConexaoDb.url = "jdbc:mysql:\\localhost:3306\\projetoPoo";
+        ConexaoDb.url = "jdbc:mysql:\\localhost:3306\\projetopoo";
         ConexaoDb.user = "root";
         ConexaoDb.pass = "Xxbbv3%$";
         ConexaoDb.driver = "com.mysql.jdbc.Driver";
@@ -27,7 +27,7 @@ public class ConexaoDb {
     public static Connection conectarBanco() throws ClassNotFoundException, SQLException{
         try {
             Class.forName(driver);
-            return (Connection) DriverManager.getConnection(url,user,pass);
+            return DriverManager.getConnection(url,user,pass);
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException("Não foi possível conectar-se com o Banco de Dados: " + e);
         }
